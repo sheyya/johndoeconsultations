@@ -1,0 +1,105 @@
+[
+  {
+    "question": "When an employee leaves what do you worry about?",
+    "info": ["Choose all that apply"],
+    "answers": [
+      "Know-how is locked in the employee",
+      "Work stops when employees leave",
+      "Customer satisfaction suffers",
+      " Team cohesiveness drops",
+      "Key certifications would be lost",
+      "We are not concerned about employees leaving"
+    ],
+    "correct": ["We are not concerned about employees leaving"],
+    "questionId": "001"
+  },
+  {
+    "question": "What prevents employees from sharing knowledge?",
+    "info": ["Choose all that apply"],
+    "answers": [
+      "Lack of systems and processes to share know-how",
+      "They are not motivated to share know-how",
+      "Worry that someone else will know more and be seen as more valuable",
+      "Worry about losing promotions and raises",
+      "They are sharing know-how perfectly"
+    ],
+    "correct": ["They are sharing know-how perfectly"],
+    "questionId": "002"
+  },
+  {
+    "question": "How do you test company performance without a key employee?",
+    "info": ["Choose all that apply"],
+    "answers": [
+      "By enforcing vacations where the employee can’t communicate with the company",
+      "By moving employees to a different location where employee can communicate with company",
+      "We don’t test this"
+    ],
+    "correct": [
+      "By enforcing vacations where the employee can’t communicate with the company",
+      "By moving employees to a different location where employee can communicate with company"
+    ],
+    "questionId": "003"
+  },
+  {
+    "question": "What is being done by the company to ensure that knowledge about company processes are shared?",
+    "info": ["Choose all that apply"],
+    "answers": [
+      "We train and motivate employees to share knowledge",
+      "We have processes and systems to share information",
+      "We make knowledge sharing a part of the annual/quarterly evaluation process",
+      "None of the above"
+    ],
+    "correct": [
+      "We train and motivate employees to share knowledge",
+      "We have processes and systems to share knowledge",
+      "We make knowledge sharing a part of the annual/quarterly evaluation process"
+    ],
+    "questionId": "004"
+  },
+  {
+    "question": "How well your company integrated with modern technology?",
+    "info": ["Choose one."],
+    "answers": [
+      "Well-integrated",
+      "Somewhat integrated",
+      "Barely integrated",
+      "Not Sure"
+    ],
+    "correct": ["Well-integrated", "Somewhat integrated"],
+    "questionId": "005"
+  },
+  {
+    "question": "How many years has your business been operational?",
+    "info": ["Choose one."],
+    "answers": [
+      "Less than 1 Year",
+      "1 Year - 5 Years",
+      "5 Years - 10 Years",
+      "More Than 10 Years"
+    ],
+    "correct": [
+      "Less than 1 Year",
+      "1 Year - 5 Years",
+      "5 Years - 10 Years",
+      "More Than 10 Years"
+    ],
+    "questionId": "006"
+  },
+  {
+    "question": "What best describes you?",
+    "info": ["Choose what best describes you."],
+    "answers": [
+      "CEO / Owner / Investor",
+      "Manager",
+      "Non Managerial Employee",
+      "Student"
+    ],
+    "correct": [
+      "CEO / Owner / Investor",
+      "Manager",
+      "Non Managerial Employee",
+      "Student"
+    ],
+    "questionId": "007"
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "name": "cjyoung",
+  "private": true,
+  "description": "Business Counselling",
+  "version": "0.1.0",
+  "author": "CJYoung",
+  "dependencies": {
+    "@aws-amplify/ui-react": "^1.0.6",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
+    "apexcharts": "^3.26.0",
+    "aws-amplify": "^3.3.26",
+    "aws-amplify-react": "^4.2.30",
+    "axios": "^0.21.0",
+    "babel-plugin-styled-components": "^1.12.0",
+    "bootstrap": "^4.5.3",
+    "bootstrap-4-react": "0.0.59",
+    "gatsby": "^2.29.1",
+    "gatsby-image": "^2.5.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-google-gtag": "^2.5.0",
+    "gatsby-plugin-manifest": "^2.6.1",
+    "gatsby-plugin-offline": "^3.4.0",
+    "gatsby-plugin-react-helmet": "^3.4.0",
+    "gatsby-plugin-sass": "^2.8.0",
+    "gatsby-plugin-sharp": "^2.8.0",
+    "gatsby-plugin-styled-components": "^3.7.0",
+    "gatsby-source-filesystem": "^2.5.0",
+    "gatsby-transformer-sharp": "^2.6.0",
+    "localstorage-memory": "^1.0.3",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-apexcharts": "^1.3.7",
+    "react-bootstrap": "^1.4.0",
+    "react-charts": "^2.0.0-beta.7",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "react-phone-input-2": "^2.13.9",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1",
+    "react-toastify": "^6.2.0",
+    "styled-components": "^5.2.1",
+    "uuid": "^8.3.2",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "prettier": "2.1.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true,
+      "browser": true,
+      "es6": true
+    },
+    "plugins": [
+      "react",
+      "jsx-a11y"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended"
+    ]
+  }
+}

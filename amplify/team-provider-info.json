@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cisproject-dev-20808-authRole",
+      "UnauthRoleArn": "arn:aws:iam::802859954234:role/amplify-cisproject-dev-20808-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::802859954234:role/amplify-cisproject-dev-20808-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-cisproject-dev-20808-deployment",
+      "UnauthRoleName": "amplify-cisproject-dev-20808-unauthRole",
+      "StackName": "amplify-cisproject-dev-20808",
+      "StackId": "arn:aws:cloudformation:ap-south-1:802859954234:stack/amplify-cisproject-dev-20808/05877ae0-9261-11eb-9331-06ae635cc858",
+      "AmplifyAppId": "d4oo53jxo5mxw"
+    },
+    "categories": {
+      "auth": {
+        "cisproject1325a79d": {}
+      }
+    }
+  }
+}

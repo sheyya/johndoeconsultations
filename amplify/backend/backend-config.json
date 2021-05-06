@@ -1,0 +1,12 @@
+{
+  "auth": {
+    "cisproject1325a79d": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "function": {},
+  "api": {}
+}
