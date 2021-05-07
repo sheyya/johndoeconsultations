@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import { Auth, Hub, Logger } from 'aws-amplify';
-import Helmet from "react-helmet"
+import React from 'react';
+import { Navbar } from 'react-bootstrap'
+import { Auth } from 'aws-amplify';
 import { AmplifySignOut } from '@aws-amplify/ui-react';
 
 //Header area of admin dashboard

@@ -9,6 +9,10 @@ import { Link } from "gatsby"
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight"
 import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 
+/**
+ * Home Components
+ * @returns {JSX}
+ */
 const Home = () => (
   <div>
     <Head />

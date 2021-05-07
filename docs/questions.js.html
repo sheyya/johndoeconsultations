@@ -1,4 +1,32 @@
-import React, { useEffect, useState } from "react"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: questions.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: questions.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from "react"
 import "../assets/css/styles.css"
 import Button from "@material-ui/core/Button"
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight"
@@ -27,8 +55,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 /**
- * Functinal Component to display questions page
- * @returns {JSX}
+ * Questions component
  */
 
 const Questions = () => {
@@ -40,8 +67,8 @@ const Questions = () => {
     const user = await Auth.currentAuthenticatedUser();
 
     /**
-     * Returns groups
-     *
+     * Returns an array of groups
+     * @returns {array}
      */
     const groups = user.signInUserSession.accessToken.payload["cognito:groups"];
 
@@ -132,7 +159,7 @@ const Questions = () => {
 
   //function to handle checkbox value on checking and unchecking answers
   const handleCheckbox = e => {
-    if (sid < 4) {
+    if (sid &lt; 4) {
       if (e.target.value === quiz.slice(sid, eid)[0].answers[0]) {
         setCheckedq1(old => !old)
       }
@@ -327,11 +354,11 @@ const Questions = () => {
   const nxtBtnClick = () => {
     let adata
     if (
-      !checkedq1 &&
-      !checkedq2 &&
-      !checkedq3 &&
-      !checkedq4 &&
-      !checkedq5 &&
+      !checkedq1 &amp;&amp;
+      !checkedq2 &amp;&amp;
+      !checkedq3 &amp;&amp;
+      !checkedq4 &amp;&amp;
+      !checkedq5 &amp;&amp;
       !checkedq6
     ) {
       // toast "Please Select an answer" if user doesn't select an answer
@@ -414,7 +441,7 @@ const Questions = () => {
       }
 
       //increment sid and eid values to keep track of question pages
-      if (sid < 6 && eid < 7) {
+      if (sid &lt; 6 &amp;&amp; eid &lt; 7) {
         setEid(eid + 1)
         setSid(sid + 1)
       }
@@ -582,26 +609,25 @@ const Questions = () => {
   const classes = useStyles()
 
   return (
-    <div>
-      <Head />
-      <img src={QUp} id="bgu" alt="" />
-      <img src={QDown} id="bgd" alt="" />
+    &lt;div>
+      &lt;Head />
+      &lt;img src={QUp} id="bgu" alt="" />
+      &lt;img src={QDown} id="bgd" alt="" />
 
-      <header className="masthead">
-        <div className="container h-100">
-          <div className="row h-100">
-            <ToastContainer
+      &lt;header className="masthead">
+        &lt;div className="container h-100">
+          &lt;div className="row h-100">
+            &lt;ToastContainer
               style={{ color: "black", fontWeight: "500", textAlign: "center" }}
             />
-            <div className="col-lg-12 my-auto">
+            &lt;div className="col-lg-12 my-auto">
               {quiz.slice(sid, eid).map(quiz => (
-                <Qblock
+                &lt;Qblock
                   question={quiz.question}
                   answers={quiz.answers}
                   info={quiz.info}
                   handleCheckbox={handleCheckbox}
                   check1={checkedq1}
-                  show={true}
                   check2={checkedq2}
                   check3={checkedq3}
                   check4={checkedq4}
@@ -612,13 +638,13 @@ const Questions = () => {
                   disable3={disableq3}
                 />
               ))}
-              <div className="nxtButton" style={{ marginBottom: "20px" }}>
-                <Button
+              &lt;div className="nxtButton" style={{ marginBottom: "20px" }}>
+                &lt;Button
                   variant="contained"
                   className={classes.margin}
                   disableElevation
                   style={{ backgroundColor: "#EA745Bt", color: "#000000" }}
-                  startIcon={<KeyboardBackspaceIcon />}
+                  startIcon={&lt;KeyboardBackspaceIcon />}
                   onClick={() => {
                     if (sid === 1) {
                       setCheckedq1(q1chk1)
@@ -689,14 +715,14 @@ const Questions = () => {
                     }
                     console.log(sid);
 
-                    if (sid < 7 && eid < 8) {
+                    if (sid &lt; 7 &amp;&amp; eid &lt; 8) {
                       setEid(eid - 1)
                       setSid(sid - 1)
                     }
                     if (sid === 0) {
                       navigate("/")
                     }
-                    if (sid < 7) {
+                    if (sid &lt; 7) {
 
                       setBtn("Next")
                     }
@@ -704,23 +730,24 @@ const Questions = () => {
                   }}
                 >
                   Back
-                </Button>
-                <Button
+                &lt;/Button>
+                &lt;Button
                   variant="contained"
                   style={{ backgroundColor: "#EA745B", color: "#ffffff" }}
-                  startIcon={<KeyboardArrowRightIcon />}
+                  startIcon={&lt;KeyboardArrowRightIcon />}
                   onClick={() => {
                     nxtBtnClick()
+                    ////////console.log(eid, sid)
                   }}
                 >
                   {btnName}
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
+                &lt;/Button>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/header>
+    &lt;/div>
   )
 }
 
@@ -730,3 +757,26 @@ export default withAuthenticator(Questions, {
     signUpFields: [{ key: 'name', label: 'Name', required: true }]
   }
 })
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Register.html">Register</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Questions">Questions</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu May 06 2021 20:23:50 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

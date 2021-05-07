@@ -7,6 +7,10 @@ import HomeIcon from "@material-ui/icons/Home"
 import "react-toastify/dist/ReactToastify.css"
 import { navigate } from "gatsby"
 
+/**
+ * Functional component to display thank you page
+ * @returns {JSX}
+ */
 const Thanks = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,6 +18,7 @@ const Thanks = () => {
     phone: "-",
   })
 
+  //Get data from localstorage
   useEffect(() => {
     if (localStorage.getItem("user") != null) {
       if (typeof window !== "undefined") {

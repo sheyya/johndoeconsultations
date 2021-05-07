@@ -1,10 +1,12 @@
 import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import ErrorIcon from "@material-ui/icons/Error"
-import HelpIcon from "@material-ui/icons/Help"
 import React from "react"
 
-//Component to get correct/wrong answers and set value for the progress bar in dashboard
-//passing answers, correct answer, and function to calculate progress value
+
+/**
+ * Component to get correct/wrong answers and set value for the progress bar in dashboard
+ * @param {object} dataParam Passing object with answers, correct answer, and function to calculate progress value
+ */
 const Adashblock = ({ answers, correctA, completed }) => {
   var Icon
   var sid = correctA.indexOf(answers)
@@ -18,7 +20,10 @@ const Adashblock = ({ answers, correctA, completed }) => {
     Icon = "incorrect"
   }
 
-
+  /**
+   * Display icon based on answer
+   * @returns void
+   */
   const icondisplay = () => {
     if (Icon === "correct") {
       return <CheckCircleIcon style={{ color: "#1abc9c" }} />
@@ -27,6 +32,7 @@ const Adashblock = ({ answers, correctA, completed }) => {
       return <ErrorIcon style={{ color: "#f1c40f" }} />
     }
   }
+
   return (
     <div
       className="answers"

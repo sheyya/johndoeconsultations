@@ -6,11 +6,15 @@ import RadioGroup from "@material-ui/core/RadioGroup"
 import FormControl from "@material-ui/core/FormControl"
 import React from "react"
 
-//Question block component of the website
-//Passing necessary values to the question block question, answers and info to render.
-//show varible use to show radio buttons or checkboxes
-//check 1-6 store check box value status
-//disable 1-3 store whether to disable answers
+
+/**
+ * Question block component of the website
+ * Passing necessary values to the question block question, answers and info to render.
+ * show varible use to show radio buttons or checkboxes
+ * check 1-6 store check box value status
+ * disable 1-3 store whether to disable answers
+ * @param {object} param0 
+ */
 const Qblock = ({
   question,
   answers,

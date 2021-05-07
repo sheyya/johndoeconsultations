@@ -1,4 +1,32 @@
-import React, { useEffect, useState } from "react"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/admin-dashboard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/admin-dashboard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from "react"
 import "../assets/css/styles.css"
 import Navigate from "../components/headernav"
 import Button from "@material-ui/core/Button"
@@ -89,7 +117,7 @@ const adminDash = () => {
         enabled: false
       },
       xaxis: {
-        categories: ['<1', '1 - 5', '5 - 10', '> 10'],
+        categories: ['&lt;1', '1 - 5', '5 - 10', '> 10'],
       }
     },
   })
@@ -197,11 +225,11 @@ const adminDash = () => {
   //If user is not admin show an message
   if (!isAdmin) {
     return (
-      <header>
-        <div className="container h-100">
-          <div className=" h-100">
+      &lt;header>
+        &lt;div className="container h-100">
+          &lt;div className=" h-100">
 
-            <h2
+            &lt;h2
               className="pricingTitle"
               style={{
                 textAlign: "center",
@@ -211,20 +239,20 @@ const adminDash = () => {
               }}
             >
               You Don't Have access to this page!
-            </h2>
-          </div></div></header>
+            &lt;/h2>
+          &lt;/div>&lt;/div>&lt;/header>
     );
   } else {
 
     //if user is admin render the admin dashboard
     return (
-      <>
-        <Navigate />
-        <header>
-          <div className="container h-100">
-            <div className=" h-100">
+      &lt;>
+        &lt;Navigate />
+        &lt;header>
+          &lt;div className="container h-100">
+            &lt;div className=" h-100">
 
-              <h2
+              &lt;h2
                 className="pricingTitle"
                 style={{
                   textAlign: "left",
@@ -233,195 +261,196 @@ const adminDash = () => {
                 }}
               >
                 Hello!
-            </h2>
-              <Modal dialogClassName="modal-90w" show={show} onHide={handleClose} centered >
+            &lt;/h2>
+              &lt;Modal dialogClassName="modal-90w" show={show} onHide={handleClose} centered >
 
-                <Modal.Header closeButton>
-                  <Modal.Title>More Details</Modal.Title>
-                </Modal.Header>
+                &lt;Modal.Header closeButton>
+                  &lt;Modal.Title>More Details&lt;/Modal.Title>
+                &lt;/Modal.Header>
 
-                <Modal.Body>
-                  <br />
-                  <Row style={{ textAlign: "center", marginLeft: "10em", marginRight: "10em" }}>
-                    <Col xs={6} md={4}>
-                      <h5>Name</h5><br />
-                      <p>{modalData.dataName}</p>
-                    </Col>
-                    <Col xs={6} md={4}>
-                      <h5>Email</h5><br />
-                      <p><a href={"mailto:" + modalData.dataEmail}>{modalData.dataEmail}</a></p>
-                    </Col>
-                    <Col xs={6} md={4}>
-                      <h5>Phone</h5><br />
-                      <p><a href={"tel:" + modalData.dataPhone}>{modalData.dataPhone}</a></p>
-                    </Col>
-                  </Row>
-                  <br />
-                  <br />
-                  <Row style={{ textAlign: "center" }}>
-                    <Col xs={6} md={6} className="modalqsection">
-                      <div className="qSection" style={{ width: "100%" }}>
-                        <div className="questionBlock2">
-                          <h4>
+                &lt;Modal.Body>
+                  &lt;br />
+                  &lt;Row style={{ textAlign: "center", marginLeft: "10em", marginRight: "10em" }}>
+                    &lt;Col xs={6} md={4}>
+                      &lt;h5>Name&lt;/h5>&lt;br />
+                      &lt;p>{modalData.dataName}&lt;/p>
+                    &lt;/Col>
+                    &lt;Col xs={6} md={4}>
+                      &lt;h5>Email&lt;/h5>&lt;br />
+                      &lt;p>&lt;a href={"mailto:" + modalData.dataEmail}>{modalData.dataEmail}&lt;/a>&lt;/p>
+                    &lt;/Col>
+                    &lt;Col xs={6} md={4}>
+                      &lt;h5>Phone&lt;/h5>&lt;br />
+                      &lt;p>&lt;a href={"tel:" + modalData.dataPhone}>{modalData.dataPhone}&lt;/a>&lt;/p>
+                    &lt;/Col>
+                  &lt;/Row>
+                  &lt;br />
+                  &lt;br />
+                  &lt;Row style={{ textAlign: "center" }}>
+                    &lt;Col xs={6} md={6} className="modalqsection">
+                      &lt;div className="qSection" style={{ width: "100%" }}>
+                        &lt;div className="questionBlock2">
+                          &lt;h4>
                             When an employee leaves what is/are the biggest concern/s?
-                    </h4>
-                        </div>
-                        <div className="answerBlock">
-                          {modalData.dataQuestions.q1 &&
+                    &lt;/h4>
+                        &lt;/div>
+                        &lt;div className="answerBlock">
+                          {modalData.dataQuestions.q1 &amp;&amp;
                             modalData.dataQuestions.q1.map((object, index) => (
-                              <Adashblock
+                              &lt;Adashblock
                                 answers={object}
                                 index={index}
                                 correctA={q1A}
+
                               />
                             ))}
-                        </div>
-                      </div>
-                    </Col> <Col xs={6} md={6} className="modalqsection">
-                      <div className="qSection" style={{ width: "100%" }}>
-                        <div className="questionBlock2">
-                          <h4>What prevents employees from sharing information?</h4>
-                        </div>
-                        <div className="answerBlock">
-                          {modalData.dataQuestions.q2 &&
+                        &lt;/div>
+                      &lt;/div>
+                    &lt;/Col> &lt;Col xs={6} md={6} className="modalqsection">
+                      &lt;div className="qSection" style={{ width: "100%" }}>
+                        &lt;div className="questionBlock2">
+                          &lt;h4>What prevents employees from sharing information?&lt;/h4>
+                        &lt;/div>
+                        &lt;div className="answerBlock">
+                          {modalData.dataQuestions.q2 &amp;&amp;
                             modalData.dataQuestions.q2.map((object, index) => (
-                              <Adashblock
+                              &lt;Adashblock
                                 answers={object}
                                 index={index}
                                 correctA={q2A}
 
                               />
                             ))}
-                        </div>
-                      </div>
-                    </Col> <Col xs={6} md={6} className="modalqsection">
-                      <div className="qSection" style={{ width: "100%" }}>
-                        <div className="questionBlock2">
-                          <h4>
+                        &lt;/div>
+                      &lt;/div>
+                    &lt;/Col> &lt;Col xs={6} md={6} className="modalqsection">
+                      &lt;div className="qSection" style={{ width: "100%" }}>
+                        &lt;div className="questionBlock2">
+                          &lt;h4>
                             How do you test how the company will function in the
                             absence of the key employee?
-                    </h4>
-                        </div>
-                        <div className="answerBlock">
-                          {modalData.dataQuestions.q3 &&
+                    &lt;/h4>
+                        &lt;/div>
+                        &lt;div className="answerBlock">
+                          {modalData.dataQuestions.q3 &amp;&amp;
                             modalData.dataQuestions.q3.map((object, index) => (
-                              <Adashblock
+                              &lt;Adashblock
                                 answers={object}
                                 index={index}
                                 correctA={q3A}
 
                               />
                             ))}
-                        </div>
-                      </div></Col> <Col xs={6} md={6} className="modalqsection">
-                      <div className="qSection" style={{ width: "100%" }}>
-                        <div className="questionBlock2">
-                          <h4>
+                        &lt;/div>
+                      &lt;/div>&lt;/Col> &lt;Col xs={6} md={6} className="modalqsection">
+                      &lt;div className="qSection" style={{ width: "100%" }}>
+                        &lt;div className="questionBlock2">
+                          &lt;h4>
                             What is being done by the company to ensure that knowledge
                             about company processes are shared?
-                    </h4>
-                        </div>
-                        <div className="answerBlock">
-                          {modalData.dataQuestions.q4 &&
+                    &lt;/h4>
+                        &lt;/div>
+                        &lt;div className="answerBlock">
+                          {modalData.dataQuestions.q4 &amp;&amp;
                             modalData.dataQuestions.q4.map((object, index) => (
-                              <Adashblock
+                              &lt;Adashblock
                                 answers={object}
                                 index={index}
                                 correctA={q4A}
                               />
                             ))}
-                        </div>
-                      </div>
-                    </Col>
-                  </Row>
-                </Modal.Body>
+                        &lt;/div>
+                      &lt;/div>
+                    &lt;/Col>
+                  &lt;/Row>
+                &lt;/Modal.Body>
 
-                <Modal.Footer>
+                &lt;Modal.Footer>
 
-                  <Button variant="secondary" onClick={handleClose}>Close</Button>
+                  &lt;Button variant="secondary" onClick={handleClose}>Close&lt;/Button>
 
-                </Modal.Footer>
+                &lt;/Modal.Footer>
 
-              </Modal>
-              <main className="main-content bgc-grey-100">
-                <div id="mainContent">
-                  <div className="container-fluid">
-                    <div className="row">
-                      <div className="col-md-2">
-                        <div style={{ marginLeft: "auto", marginRight: "auto", width: "100%" }} className="databox">
-                          <h2>{TotalClient}</h2>
-                          <p>Total Clients</p>
-                        </div>
-                        <div style={{ marginLeft: "auto", marginRight: "auto", width: "100%" }} className="databox">
-                          <h2>{AverageScore}%</h2>
-                          <p>Average Score</p>
-                        </div>
-                      </div>
-                      <div className="col-md-5">
-                        <div className="databox">
-                          <h5>Business Lifetime(Years)</h5>
-                          <div className="mixed-chart">
-                            <Chart
+              &lt;/Modal>
+              &lt;main className="main-content bgc-grey-100">
+                &lt;div id="mainContent">
+                  &lt;div className="container-fluid">
+                    &lt;div className="row">
+                      &lt;div className="col-md-2">
+                        &lt;div style={{ marginLeft: "auto", marginRight: "auto", width: "100%" }} className="databox">
+                          &lt;h2>{TotalClient}&lt;/h2>
+                          &lt;p>Total Clients&lt;/p>
+                        &lt;/div>
+                        &lt;div style={{ marginLeft: "auto", marginRight: "auto", width: "100%" }} className="databox">
+                          &lt;h2>{AverageScore}%&lt;/h2>
+                          &lt;p>Average Score&lt;/p>
+                        &lt;/div>
+                      &lt;/div>
+                      &lt;div className="col-md-5">
+                        &lt;div className="databox">
+                          &lt;h5>Business Lifetime(Years)&lt;/h5>
+                          &lt;div className="mixed-chart">
+                            &lt;Chart
                               options={bLifetimeBarChart.options}
                               series={[{ data: chartData }]}
                               type="bar"
                               width="100%"
                             />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-5">
-                        <div className="databox">
-                          <h5>Job Roles</h5>
-                          <Chart options={bLifetimePieChart.options} series={PieData} labels={bLifetimePieChart.labels} type="donut" width="100%" />
-                        </div>
-                      </div>
-                    </div>
-                    <div style={{ marginTop: "4em" }} className="row">
-                      <div className="col-md-12">
-                        <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                          <table
+                          &lt;/div>
+                        &lt;/div>
+                      &lt;/div>
+                      &lt;div className="col-md-5">
+                        &lt;div className="databox">
+                          &lt;h5>Job Roles&lt;/h5>
+                          &lt;Chart options={bLifetimePieChart.options} series={PieData} labels={bLifetimePieChart.labels} type="donut" width="100%" />
+                        &lt;/div>
+                      &lt;/div>
+                    &lt;/div>
+                    &lt;div style={{ marginTop: "4em" }} className="row">
+                      &lt;div className="col-md-12">
+                        &lt;div className="bgc-white bd bdrs-3 p-20 mB-20">
+                          &lt;table
                             id="dataTable"
                             className="table table-striped table-bordered"
                             cellspacing="0"
                             width="100%"
                           >
-                            <thead className="thead">
-                              <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Score</th>
-                                <th>Details</th>
-                              </tr>
-                            </thead>
+                            &lt;thead className="thead">
+                              &lt;tr>
+                                &lt;th>Name&lt;/th>
+                                &lt;th>Email&lt;/th>
+                                &lt;th>Phone&lt;/th>
+                                &lt;th>Score&lt;/th>
+                                &lt;th>Details&lt;/th>
+                              &lt;/tr>
+                            &lt;/thead>
 
-                            <tbody>
+                            &lt;tbody>
                               {Arraydata.map(data => {
                                 return (
-                                  <tr>
-                                    <td>{data.name}</td>
-                                    <td><a href={"emailto:" + data.email}>{data.email}</a></td>
-                                    <td><a href={"tel:" + data.phone}>{data.phone}</a></td>
-                                    <td>{data.config.score}%</td>
-                                    <td>
-                                      <Button onClick={() => handleShow(data)}>More Details</Button>
-                                    </td>
-                                  </tr>
+                                  &lt;tr>
+                                    &lt;td>{data.name}&lt;/td>
+                                    &lt;td>&lt;a href={"emailto:" + data.email}>{data.email}&lt;/a>&lt;/td>
+                                    &lt;td>&lt;a href={"tel:" + data.phone}>{data.phone}&lt;/a>&lt;/td>
+                                    &lt;td>{data.config.score}%&lt;/td>
+                                    &lt;td>
+                                      &lt;Button onClick={() => handleShow(data)}>More Details&lt;/Button>
+                                    &lt;/td>
+                                  &lt;/tr>
                                 )
                               })}
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </main>
-            </div>
-          </div>
-        </header>
-      </>
+                            &lt;/tbody>
+                          &lt;/table>
+                        &lt;/div>
+                      &lt;/div>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/div>
+              &lt;/main>
+            &lt;/div>
+          &lt;/div>
+        &lt;/header>
+      &lt;/>
     )
   }
 }
@@ -431,3 +460,26 @@ export default withAuthenticator(adminDash, {
     signUpFields: [{ key: 'name', label: 'Name', required: true }]
   }
 })
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Adashblock">Adashblock</a></li><li><a href="global.html#adminDash">adminDash</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#ProgressBar">ProgressBar</a></li><li><a href="global.html#Qblock">Qblock</a></li><li><a href="global.html#Questions">Questions</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#Thanks">Thanks</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu May 06 2021 22:11:40 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

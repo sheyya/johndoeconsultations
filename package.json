@@ -48,8 +48,10 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "better-docs": "^2.3.2",
     "eslint": "^7.16.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "jsdoc": "^3.6.6",
     "prettier": "2.1.2"
   },
   "keywords": [
@@ -63,7 +65,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",

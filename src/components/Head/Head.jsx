@@ -5,7 +5,7 @@ import Helmet from "react-helmet"
 // Main Header of the website
 const Head = () => (
   <Helmet>
-    <title>CIS Project</title>
+    <title>John Doe Consultations</title>
   </Helmet>
 )
 

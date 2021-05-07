@@ -1,4 +1,32 @@
-import React, { useState, useEffect } from "react"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: register.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: register.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react"
 import Button from "@material-ui/core/Button"
 import DoneIcon from "@material-ui/icons/Done"
 import { navigate } from "gatsby"
@@ -12,35 +40,34 @@ import { Auth } from "aws-amplify"
 
 /**
  * Register Component
+ * @module Register
  * @returns void
  * 
  */
 const Register = () => {
 
-  // State variable to store form data
   const [formData, setFormData] = useState({
     name: null,
     email: null,
     phone: null,
     rawPhone: null
   })
-
-  // State variable to store country code
   const [countryCode, setCountryCode] = useState({
     phoneCountry: null,
   })
-  // State variable to store name,email,phone validity
   const [namevalid, setNamevalid] = useState(true)
   const [emailvalid, setEmailvalid] = useState(true)
   const [phonevalid, setPhonevalid] = useState(true)
 
-
+  /**
+   * Name
+   * @type {string}
+   */
   var name = formData.name
   var email = formData.email
   var phone = formData.phone
   var rawPhone = formData.rawPhone
 
-  //get authenticated user details and store in state variable
   useEffect(() => {
     Auth.currentUserInfo().then((userInfo) => {
       if (userInfo !== null) {
@@ -57,13 +84,11 @@ const Register = () => {
 
     })
   }, [])
-
-  //Validate typed text on phone and email
   const VALIDATORS = {
     NAME: input => /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(input),
     EMAIL: input =>
       // eslint-disable-next-line no-useless-escape
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      /^(([^&lt;>()\[\]\\.,;:\s@"]+(\.[^&lt;>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         input
       ),
     PHONE: input =>
@@ -71,28 +96,29 @@ const Register = () => {
       /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})/.test(
         input
       ),
-    DESCRIPTION: input => input && input.length >= 100,
+    DESCRIPTION: input => input &amp;&amp; input.length >= 100,
   }
 
-  //Function to check name validity
   const isName = () => {
     if (!VALIDATORS.NAME(name)) {
       setNamevalid(false)
     }
+    console.log(namevalid)
   }
 
-  //Function to check email validity
   const isEmail = () => {
     if (!VALIDATORS.EMAIL(email)) {
       setEmailvalid(false)
     }
   }
 
-  //Function to check phone validity
   const isPhone = () => {
     if (!VALIDATORS.PHONE(phone)) {
       setPhonevalid(false)
+      console.log("wrong")
     }
+
+    console.log(phone)
   }
 
   const waittoast = () => {
@@ -105,16 +131,15 @@ const Register = () => {
     })
   }
 
-  //Function to verify phone through external API
   const phoneVerifyAPI = () => {
     return new Promise((resolve, reject) => {
       return axios
         .get(
-          `http://apilayer.net/api/validate?access_key=c1a8f64e980d26490daa4d1791393a44&number=` +
+          `http://apilayer.net/api/validate?access_key=c1a8f64e980d26490daa4d1791393a44&amp;number=` +
           rawPhone +
-          `&country_code=` +
+          `&amp;country_code=` +
           countryCode.phoneCountry +
-          `&format= 1`
+          `&amp;format= 1`
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
@@ -136,19 +161,18 @@ const Register = () => {
     })
   }
 
-  //Function to verify email through external API
   const emailVerifyAPI = () => {
     return new Promise((resolve, reject) => {
       return axios
         .get(
-          `http://apilayer.net/api/check?access_key=175b55900e88cdf8892de78c05094b7c&email=` +
+          `http://apilayer.net/api/check?access_key=175b55900e88cdf8892de78c05094b7c&amp;email=` +
           email +
-          `&smtp=1&format=1`
+          `&amp;smtp=1&amp;format=1`
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
           console.log(result)
-          if (result.data.smtp_check && result.data.mx_found) {
+          if (result.data.smtp_check &amp;&amp; result.data.mx_found) {
             setEmailvalid(true)
             if (isSignUpValid()) {
               console.log('valid');
@@ -158,6 +182,8 @@ const Register = () => {
                 console.log('done');
 
               }
+              // setShow(true)
+              // localStorage.setItem("user", JSON.stringify(formData))
               navigate("/dashboard")
             }
           } else {
@@ -175,20 +201,14 @@ const Register = () => {
   }
 
   const isSignUpValid = () =>
-    name &&
-    email &&
-    phone &&
-    VALIDATORS.NAME(name) &&
-    VALIDATORS.EMAIL(email) &&
+    name &amp;&amp;
+    email &amp;&amp;
+    phone &amp;&amp;
+    VALIDATORS.NAME(name) &amp;&amp;
+    VALIDATORS.EMAIL(email) &amp;&amp;
     VALIDATORS.PHONE(phone)
 
-  /**
-   * Handle when user type phone number
-   * @param {String} phone 
-   * @param {String} value 
-   * 
-   */
-  const handlePhoneChange = (phone, value) => {
+  const handlePhoneChange = (phone, value, data) => {
     setFormData({
       ...formData,
       phone: phone,
@@ -197,11 +217,6 @@ const Register = () => {
     setCountryCode({ phoneCountry: value.countryCode })
     setPhonevalid(true)
   }
-
-  /**
-   * Function to handle form value changes
-   * @param {event} e Pass event changes to input boxes 
-   */
   const formValueChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     console.log(formData)
@@ -215,16 +230,15 @@ const Register = () => {
 
   }
 
-  /**
-   * Function to handle submit button
-   * @param {event} event submit data event
-   */
   const submitData = event => {
+    console.log(name)
     event.preventDefault()
     isName()
     isEmail()
     isPhone()
     if (isSignUpValid()) {
+      console.log('ok');
+
       waittoast()
       phoneVerifyAPI()
     } else {
@@ -234,23 +248,23 @@ const Register = () => {
 
   return (
 
-    <div>
-      <Head />
-      <div className="container h-100">
-        <div className=" h-100">
-          <div className="col-lg-8 mx-auto">
-            <ToastContainer
+    &lt;div>
+      &lt;Head />
+      &lt;div className="container h-100">
+        &lt;div className=" h-100">
+          &lt;div className="col-lg-8 mx-auto">
+            &lt;ToastContainer
               style={{ color: "white", fontWeight: "500", textAlign: "center" }}
             />
-            <div className="RegBox">
-              <div className="Title">
-                <h3>We will contact you shortly</h3>
-              </div>
-              <div className="form mx-auto">
-                <form onSubmit={submitData}>
-                  <div className="group-input">
-                    <label htmlFor="name">Name</label>
-                    <input
+            &lt;div className="RegBox">
+              &lt;div className="Title">
+                &lt;h3>We will contact you shortly&lt;/h3>
+              &lt;/div>
+              &lt;div className="form mx-auto">
+                &lt;form onSubmit={submitData}>
+                  &lt;div className="group-input">
+                    &lt;label htmlFor="name">Name&lt;/label>
+                    &lt;input
                       type="text"
                       name="name"
                       value={name}
@@ -258,8 +272,8 @@ const Register = () => {
                       onChange={formValueChange}
                       required
                     />
-                  </div>
-                  <p
+                  &lt;/div>
+                  &lt;p
                     style={{
                       display: !namevalid ? "block" : "none",
                       fontSize: "12px",
@@ -270,20 +284,20 @@ const Register = () => {
                     }}
                   >
                     *Please enter a valid name*
-                  </p>
-                  <div className="group-input">
-                    <label htmlFor="email">Email</label>
-                    <input
+                  &lt;/p>
+                  &lt;div className="group-input">
+                    &lt;label htmlFor="email">Email&lt;/label>
+                    &lt;input
                       type="email"
                       value={email}
                       name="email"
-                      pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'
+                      pattern='/^(([^&lt;>()\[\]\\.,;:\s@"]+(\.[^&lt;>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'
                       placeholder="johndoe@gmail.com"
                       required
                       onChange={formValueChange}
                     />
-                  </div>
-                  <p
+                  &lt;/div>
+                  &lt;p
                     style={{
                       display: !emailvalid ? "block" : "none",
                       fontSize: "12px",
@@ -294,10 +308,10 @@ const Register = () => {
                     }}
                   >
                     *This doesn’t look like an email*
-                  </p>
-                  <div className="group-input">
-                    <label htmlFor="phoneNumber">Phone Number</label>
-                    <PhoneInput
+                  &lt;/p>
+                  &lt;div className="group-input">
+                    &lt;label htmlFor="phoneNumber">Phone Number&lt;/label>
+                    &lt;PhoneInput
                       placeholder="+12 123 456 7890"
                       country="us"
                       value={phone}
@@ -308,8 +322,8 @@ const Register = () => {
                       }}
                       onChange={handlePhoneChange}
                     />
-                  </div>
-                  <p
+                  &lt;/div>
+                  &lt;p
                     style={{
                       display: !phonevalid ? "block" : "none",
                       fontSize: "12px",
@@ -320,25 +334,48 @@ const Register = () => {
                     }}
                   >
                     *This doesn’t look like a phone number*
-                  </p>
-                  <Button
+                  &lt;/p>
+                  &lt;Button
                     type="submit"
                     className="site-btn login-btn"
                     variant="contained"
                     style={{ backgroundColor: "#EA745B", color: "#ffffff" }}
-                    startIcon={<DoneIcon />}
+                    startIcon={&lt;DoneIcon />}
                   >
                     Submit
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    // </header>
+                  &lt;/Button>
+                &lt;/form>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+    // &lt;/header>
   )
 }
 
 export default Register
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Register.html">Register</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Questions">Questions</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu May 06 2021 20:23:50 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

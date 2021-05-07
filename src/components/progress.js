@@ -1,7 +1,10 @@
 import React from "react"
 
-//Progress bar component in user dashboard
-//Passing progress bar color and completed value
+
+/**
+ * Progress bar component in user dashboard
+ * @param {object} props Passing progress bar color and completed value
+ */
 const ProgressBar = props => {
   const { bgcolor, completed } = props
 
